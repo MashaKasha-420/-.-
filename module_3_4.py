@@ -1,10 +1,16 @@
 def single_root_words(root_word, *other_words):
     same_words = []
-    for i  in range(len(other_words)):
-        if i in root_word:
+    word = root_word.lower()
+    for i in other_words:
+        if i.lower() in word or word in i.lower():
             same_words.append(i)
-    print(same_words)
+    return same_words
+
+result = single_root_words('air','airline', 'driver', 'airport', 'airmail', 'airdrop', 'hat' )
+print(result)
+words_ = ['airline', 'driver', 'airport', 'airmail', 'airdrop', 'hat']
+
+single_root_words('air' ,*words_)
 
 
-other_words_1 = ['airline', 'driver', 'airport', 'airmail', 'airdrop', 'hat']
-single_root_words(*other_words_1, root_word = 'air')
+
